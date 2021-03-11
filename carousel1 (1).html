@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+
+    }
+
+    #wrapper {
+      width: 100%;
+      max-width: 964px;
+      position: relative;
+    }
+
+    #carousel {
+      overflow: auto;
+      scroll-behavior: smooth;
+    }
+
+    #carousel::-webkit-scrollbar {
+      height: 0;
+    }
+
+    #prev,
+    #next {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      outline: 0;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #prev {
+      top: 50%;
+      left: 0;
+      transform: translate(50%, -50%);
+      display: none;
+    }
+
+    .plane {
+      color: black;
+    }
+
+    #next {
+      top: 50%;
+      right: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    #content {
+      display: grid;
+      grid-gap: 16px;
+      grid-auto-flow: column;
+      margin: auto;
+      box-sizing: border-box;
+    }
+
+    .item {
+      width: 180px;
+      height: 180px;
+      background: green;
+    }
+
+    .carosel {
+      display: flex;
+      padding: 50px 0px;
+    }
+
+    .head {
+      flex: 2 0 0;
+      text-align: center;
+      padding-top: 100px;
+      margin-right: 40px;
+    }
+
+    .head>span {
+      border: 2px solid rgb(24, 139, 177);
+      border-radius: 5px;
+      padding: 15px 50px;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .head>span>a {
+      text-decoration: none;
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carosel">
+    <div class="head">
+      <h1>Our Plans</h1>
+      <span><a href="#">VIEW ALL</a></span>
+    </div>
+    <div id="wrapper">
+      <div id="carousel">
+        <div id="content">
+          <div class="plane">
+            <img src="images/our_plans1.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+          <div class="plane">
+            <img src="images/our_plans2.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+          <div class="plane">
+            <img src="images/our_plans3.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+          <div class="plane">
+            <img src="images/our_plans1.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+          <div class="plane">
+            <img src="images/our_plans2.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+          <div class="plane">
+            <img src="images/our_plans3.png">
+            <h1>Lorem Ipsum</h1>
+            <p>Lorem Ipsum is simply dummy textLorem Ipsum is simply dummy text</p>
+          </div>
+        </div>
+      </div>
+
+      <a id="prev"><img src="images/carousel_prev.png"></a>
+      <a id="next"><img src="images/carousel_next.svg"></a>
+
+    </div>
+</body>
+<script>
+  const gap = 16;
+  const carousel = document.getElementById("carousel")
+  const  content = document.getElementById("content")
+  const  next = document.getElementById("next")
+  const  prev = document.getElementById("prev")
+
+  next.addEventListener("click", e => {
+    carousel.scrollBy(width + gap, 0);
+    if (carousel.scrollWidth !== 0) {
+      prev.style.display = "flex";
+    }
+    if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+      next.style.display = "none";
+    }
+  });
+  prev.addEventListener("click", e => {
+    carousel.scrollBy(-(width + gap), 0);
+    if (carousel.scrollLeft - width - gap <= 0) {
+      prev.style.display = "none";
+    }
+    if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+      next.style.display = "flex";
+    }
+  });
+
+  let width = carousel.offsetWidth;
+  window.addEventListener("resize", e => (width = carousel.offsetWidth));
+
+</script>
+
+</html>

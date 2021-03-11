@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+        .mySlides {
+            display: none
+        }
+
+        .tab {
+            background-color: rgb(245, 245, 245);
+            text-align: center;
+        }
+
+        .tab>h1 {
+            padding-top: 50px;
+        }
+
+        .tabslider {
+            display: flex;
+            padding: 100px 0px;
+        }
+
+        .tabtext {
+            padding: 50px;
+            background-color: #fff;
+            text-align: justify;
+            width: 60%;
+        }
+
+        .tabtext>span {
+            color: grey;
+        }
+
+        .tabtext>p {
+            font-size: 20px;
+        }
+
+        .tabslider>img {
+            position: absolute;
+            right: 0;
+            padding-bottom: 3000px;
+            margin-right: 250px;
+        }
+
+        .inline {
+            display: flex;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 5px;
+            width: 20px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 30%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color:blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tab">
+        <h1>Wht are the people saying</h1>
+        <div class="tabslider">
+            <a class="prev" onclick="plus(-1)"><img src="images/banner_prev2.svg" alt="lol"></a>
+
+            <div class="mySlides">
+
+                <div class="inline">
+                    <div class="tabimage"><img src="images/wat_people_saying1.png" alt=""></div>
+                    <div class="tabtext">
+                        <h1>Lorem Ipsum</h1>
+                        <span>Lorem Ipsum people</span>
+                        <p>Lorem Ipsum is simply dummy textLorem ILorem Ipsum is simply dummy textLorem Ipsum is simply
+                            dummy
+                            textLorem Ipsum is simply dummy textLorem Ipsum is simply dummy textpsum is simply dummy
+                            text
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mySlides">
+                <div class="inline">
+                    <div class="tabimage"><img src="images/wat_people_saying2.png" alt=""></div>
+                    <div class="tabtext">
+                        <h1>Lorem Ipsum</h1>
+                        <span>Lorem Ipsum people</span>
+                        <p>Lorem Ipsum is simply dummy textLorem ILorem Ipsum is simply dummy textLorem Ipsum is simply
+                            dummy
+                            textLorem Ipsum is simply dummy textLorem Ipsum is simply dummy textpsum is simply dummy
+                            text
+                        </p>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="mySlides">
+                <div class="inline">
+                    <div class="tabimage"><img src="images/wat_people_saying3.png" alt=""></div>
+                    <div class="tabtext">
+                        <h1>Lorem Ipsum</h1>
+                        <span>Lorem Ipsum people</span>
+                        <p>Lorem Ipsum is simply dummy textLorem ILorem Ipsum is simply dummy textLorem Ipsum is simply
+                            dummy
+                            textLorem Ipsum is simply dummy textLorem Ipsum is simply dummy textpsum is simply dummy
+                            text
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mySlides">
+                <div class="inline">
+                    <div class="tabimage"><img src="images/wat_people_saying3.png" alt=""></div>
+                    <div class="tabtext">
+                        <h1>Lorem Ipsum</h1>
+                        <span>Lorem Ipsum people</span>
+                        <p>Lorem Ipsum is simply dummy textLorem ILorem Ipsum is simply dummy textLorem Ipsum is simply
+                            dummy
+                            textLorem Ipsum is simply dummy textLorem Ipsum is simply dummy textpsum is simply dummy
+                            text
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="mySlides">
+                <div class="inline">
+                    <div class="tabimage"><img src="images/wat_people_saying2.png" alt=""></div>
+                    <div class="tabtext">
+                        <h1>Lorem Ipsum</h1>
+                        <span>Lorem Ipsum people</span>
+                        <p>Lorem Ipsum is simply dummy textLorem ILorem Ipsum is simply dummy textLorem Ipsum is simply
+                            dummy
+                            textLorem Ipsum is simply dummy textLorem Ipsum is simply dummy textpsum is simply dummy
+                            text
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+            <img src="images/quotation.svg" alt="quotation">
+
+            <a class="next" onclick="plus(1)"><img src="images/banner_next2.svg" alt="lol"></a>
+
+        </div>
+        <div style="text-align:center">
+            <span class="dot" onclick="current(1)"></span>
+            <span class="dot" onclick="current(2)"></span>
+            <span class="dot" onclick="current(3)"></span>
+            <span class="dot" onclick="current(4)"></span>
+            <span class="dot" onclick="current(5)"></span>
+        </div>
+        <script type="text/javascript">
+            var slideIndex2 = 1;
+            showside(slideIndex2);
+
+            function plus(n) {
+                showside(slideIndex2 += n);
+            }
+
+            function current(n) {
+                showside(slideIndex2 = n);
+            }
+
+            function showside(n) {
+                var i;
+                var slides = document.getElementsByClassName("row1");
+                var dots = document.getElementsByClassName("dot1");
+                if (n > slides.length) { slideIndex2 = 1 }
+                if (n < 1) { slideIndex2 = slides.length }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex2 - 1].style.display = "block";
+                dots[slideIndex2 - 1].className += " active";
+            }
+        </script>
+</body>
+
+</html>
