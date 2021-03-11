@@ -31,11 +31,11 @@ window.addEventListener("resize", e => (width = carousel.offsetWidth));
 
 // MENU STICKY
 
-window.onscroll = function() {
-};
+// window.onscroll = function() {
+// };
 
-var navbar = document.getElementsByClassName("navbar");
-var sticky = navbar.offsetTop;
+// var navbar = document.getElementsByClassName("navbar");
+// var sticky = navbar.offsetTop;
 
 
 
@@ -44,8 +44,6 @@ var sticky = navbar.offsetTop;
 var slideIndex = 0;
   showSlides();
   var slides,dots;
-
-  
 
   function showSlides() {
       var i;
@@ -61,7 +59,7 @@ var slideIndex = 0;
       }
       slides[slideIndex-1].style.display = "block";  
       dots[slideIndex-1].className += " active";
-      setTimeout(showSlides, 3000); // Change image every 8 seconds
+      setTimeout(showSlides, 5000); // Change image every 8 seconds
   }
   
   function plusSlides(position) {
@@ -194,3 +192,24 @@ function openLink(evt, id) {
   evt.currentTarget.className += " active";
 }
 document.getElementById("default").click();
+
+
+//SECTION 7 SCRIPTS
+
+var arr = [...document.getElementsByClassName('gre1')]
+console.log(arr)
+const showmore = document.getElementById('showmore')
+showmore.addEventListener('click', () => { arr.forEach(myFunction) })
+
+function myFunction(item, index) {
+  console.log(item+"----"+index);
+  console.log(item.style.display);
+  if (item.style.display == "block") {
+    item.style.display = "none"
+    showmore.innerHTML = "Show More"
+  }
+  else {
+    item.style.display = "block"
+    showmore.innerHTML = "Show Less"
+  }
+}
