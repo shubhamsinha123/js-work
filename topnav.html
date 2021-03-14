@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>::Scrollbar</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        @-webkit-keyframes a {
+            0% {
+                left: 0
+            }
+
+            50% {
+                left: -500px
+            }
+
+            to {
+                left: 0
+            }
+        }
+
+        @keyframes a {
+            0% {
+                left: 0
+            }
+
+            50% {
+                left: -300px
+            }
+
+            to {
+                left: 0
+            }
+        }
+
+        /* 
+@-webkit-keyframes b {
+	0% {
+		color: #b90000
+	}
+	50% {
+		color: #f11616
+	}
+	to {
+		color: #b90000
+	}
+}
+
+@keyframes b {
+	0% {
+		color: #b90000
+	}
+	50% {
+		color: #f11616
+	}
+	to {
+		color: #b90000
+	}
+} */
+
+
+
+        .bg {
+            background: #7b7b7c 50% no-repeat url(images/banner.jpg);
+            background-size: cover;
+            -webkit-animation: 10s linear infinite a;
+            animation: 10s linear infinite a;
+            background-size: cover;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: calc(100vw + 300px);
+        }
+
+        .wrap {
+            color: #fff;
+            min-height: 100vh;
+            min-width: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        form{
+            margin: 0 25%;
+            background-color: rgba(240, 223, 223, 0.3);
+            border-radius: 23px;
+        }
+        form input[type = "text"]{
+            /* background-color: brown; */
+            padding: 10px 30px;
+            outline: none;
+            text-align: center;
+            margin: 30px 32px;
+            
+        }
+
+        form input[type = "text"]:hover{
+            background-color:mediumaquamarine;
+        }
+
+        form input[type = "submit"]{
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 10px 30px;
+            margin: 10px 80px;       
+        }
+        form input[type = "password"]{
+            background-color: white;
+            color: black;
+            outline: none;
+            text-align: center;
+            padding: 10px 30px;
+            margin: 10px 32px;       
+        }
+
+.content {
+	max-width: 990px;
+	margin-left: auto;
+	margin-right: auto;
+	/* min-height: 40vh; */
+	padding: 90px 15px;
+	position: relative;
+	z-index: 2
+}
+
+.content__l1 {
+	line-height: 1.2;
+	margin-bottom: 105px;
+	max-width: 600px;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	position: relative
+}
+
+.content__l1:before {
+	background: linear-gradient(90deg, rgba(0, 0, 0, .5) 60%, transparent);
+	box-sizing: border-box;
+	content: "";
+	height: 100%;
+	left: calc(-50vw + 480px);
+	position: absolute;
+	top: 0;
+	width: 100vw
+}
+.content__s {
+	display: none;
+	position: relative;
+	z-index: 2
+}
+
+.content__s_active {
+	display: block
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="bg">
+        </div>
+
+        <div class="content">
+            <div class="content__l1" style="margin-bottom:55px !important;;">
+                <div class="content__s content__s_active">
+                    You have an opportunity to change your life forever... DO NOT miss this opportunity
+                    <hr>
+                    <form>
+                        <input type="text" placeholder="NAME"><br>
+                        <input type="password" placeholder="PASSWORD"><br>
+                        <input type="submit" value="Submit">
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
